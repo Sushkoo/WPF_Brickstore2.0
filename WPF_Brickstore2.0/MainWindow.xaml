@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPF_Brickstore2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Brickstore2._0"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <TextBox x:Name="FilterItemName" Width="200" Margin="5"  TextChanged="Filter_TextChanged"/>
+            <TextBox x:Name="FilterItemID" Width="200" Margin="5"  TextChanged="Filter_TextChanged"/>
+            <Button x:Name="btnbetolt" Width="200" Margin="5">Fájl Betöltése</Button>
+        </StackPanel>
+
+        <DataGrid x:Name="LegoDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ItemID" Binding="{Binding ItemID}" Width="Auto"/>
+                <DataGridTextColumn Header="Item Name" Binding="{Binding ItemName}" Width="*"/>
+                <DataGridTextColumn Header="Category Name" Binding="{Binding CategoryName}" Width="*"/>
+                <DataGridTextColumn Header="Color Name" Binding="{Binding ColorName}" Width="*"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Qty}" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
